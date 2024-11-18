@@ -1,4 +1,8 @@
 @media (max-width: 600px) {
+    body {
+        justify-content: flex-start;
+    }
+
     #submitButton, .large-textarea {
         width: 90%; /* 모바일 화면에서 버튼과 텍스트 영역의 크기 조정 */
     }
@@ -31,7 +35,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     text-align: center;
 }
@@ -106,6 +110,8 @@ button.btn:hover {
 
 button.option-btn {
     height: 44px;
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
     background-color: var(--background-light); /* 기본 상태에서 배경보다 살짝 밝은 색 */
     border: none;
     border-radius: 999px;
@@ -132,5 +138,6 @@ button.option-btn.selected {
 button#submitButton {
     width: 100%;
     margin: 0;
+    margin-bottom: 20px;
     box-sizing: border-box;
 }
