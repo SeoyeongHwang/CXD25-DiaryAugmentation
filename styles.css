@@ -1,8 +1,34 @@
+@media (max-width: 600px) {
+    #submitButton, .large-textarea {
+        width: 90%; /* 모바일 화면에서 버튼과 텍스트 영역의 크기 조정 */
+    }
+
+    .container {
+        width: calc(100% - 20px); /* 작은 화면에서도 동일하게 여백을 제외한 너비 사용 */
+        padding: 0 20px; /* 좌우 여백 */
+    }
+}
+
+:root {
+    --primary-font: "IBM Plex Sans KR", Arial, sans-serif;
+    --secondary-font: "Noto Serif KR", Arial, sans-serif;
+    --primary-color: #15202b;
+    --secondary-color: #8e44ad;
+    --selected-color: #9b59b6;
+    --hover-color: #732d91;
+    --border-color: #9b59b6;
+    --text-color: #ffffff;
+    --background-light: #192734;
+}
+
 body {
-    background-color: #15202b;
-    font-family: Arial, sans-serif;
-    color: #ffffff;
+    background-color: var(--primary-color);
+    font-family: var(--primary-font);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-color);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -12,33 +38,48 @@ body {
 
 .container {
     max-width: 800px;
-    width: 100%;
+    width: calc(100% - 20px); /* 좌우 패딩 40px 제외 */
+    margin: 0 auto; /* 좌우 자동 마진 */
+    padding: 0 20px; /* 내부 패딩 추가 */
+    position: relative; /* 상대적인 위치 지정 */
+    box-sizing: border-box; /* 패딩과 보더를 너비에 포함 */
+    text-align: center;
 }
 
 h1 {
     font-weight: bold;
-    color: #ffffff;
+    color: var(--text-color);
+}
+
+textarea, input, select {
+    font-family: var(--primary-font);
+    font-size: 1.0em;
 }
 
 textarea {
-    margin-bottom: 15px;
+    width: 100%;
+    margin-top: 20px;
     border-radius: 10px;
-    border: 1px solid #9b59b6;
-    background-color: #192734;
-    color: #ffffff;
-    padding: 15px;
-    font-size: 1.2em;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-light);
+    color: var(--text-color);
+    padding: 20px;
 }
 
 .large-textarea {
     width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: var(--primary-font); /* 버튼에 폰트 명시적으로 지정 */
 }
 
 button.btn {
-    background-color: #8e44ad;
+    background-color: var(--secondary-color);
     border: none;
     border-radius: 20px;
-    color: #ffffff;
+    color: var(--text-color);
     font-weight: bold;
     padding: 15px 20px;
     font-size: 1.1em;
@@ -46,7 +87,7 @@ button.btn {
 }
 
 button.btn:hover {
-    background-color: #732d91;
+    background-color: var(--hover-color);
 }
 
 .form-group {
@@ -58,32 +99,38 @@ button.btn:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 16px; /* 버튼들 사이에 여유 공간을 더 추가 */
+    gap: 12px; /* 버튼들 사이에 여유 공간을 더 추가 */
     margin-top: 10px;
-    padding: 12px; /* 버튼 영역 주변에 여유 공간을 추가 */
+    flex-shrink: 0;
 }
 
 button.option-btn {
-    background-color: #22303c; /* 기본 상태에서 배경보다 살짝 밝은 색 */
+    height: 44px;
+    background-color: var(--background-light); /* 기본 상태에서 배경보다 살짝 밝은 색 */
     border: none;
     border-radius: 999px;
-    color: #ffffff;
+    color: var(--text-color);
     padding: 10px 20px; /* 이전 크기를 유지 */
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s, border 0.15s, transform 0.3s;
     font-size: 1em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 기본 그림자 */
-    min-height: 44px; /* 최소 높이를 설정하여 호버 시에도 충분한 공간 확보 */
 }
 
 button.option-btn:hover {
-    border: 2px solid #9b59b6; /* 호버 시 테두리 보라색 */
+    outline: 2px solid var(--border-color); /* 호버 시 테두리 보라색 */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* 호버 시 그림자 강화 */
     transform: scale(1.03); /* 약간의 확대 효과 */
 }
 
 button.option-btn.selected {
-    background-color: #8e44ad; /* 선택된 상태에서 진한 보라색 배경 */
-    color: #ffffff;
+    background-color: var(--selected-color); /* 선택된 상태에서 진한 보라색 배경 */
+    color: var(--text-color);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* 선택 시 그림자 조금 더 강화 */
+}
+
+button#submitButton {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
 }
