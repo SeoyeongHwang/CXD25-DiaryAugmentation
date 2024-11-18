@@ -8,7 +8,7 @@
     }
 
     .container {
-        width: calc(100% - 20px); /* 작은 화면에서도 동일하게 여백을 제외한 너비 사용 */
+        width: calc(100% - 16px); /* 작은 화면에서도 동일하게 여백을 제외한 너비 사용 */
         padding: 0 20px; /* 좌우 여백 */
     }
 }
@@ -42,7 +42,7 @@ body {
 
 .container {
     max-width: 800px;
-    width: calc(100% - 20px); /* 좌우 패딩 40px 제외 */
+    width: calc(100% - 16px); /* 좌우 패딩 40px 제외 */
     margin: 0 auto; /* 좌우 자동 마진 */
     padding: 0 20px; /* 내부 패딩 추가 */
     position: relative; /* 상대적인 위치 지정 */
@@ -51,7 +51,7 @@ body {
 }
 
 h1 {
-    font-weight: bold;
+    font-weight: 700;
     color: var(--text-color);
 }
 
