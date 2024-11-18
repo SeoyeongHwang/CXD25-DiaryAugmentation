@@ -123,6 +123,11 @@ button.option-btn {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 기본 그림자 */
 }
 
+button.option-btn span {
+    font-size: inherit;
+    vertical-align: middle;
+}
+
 button.option-btn:hover {
     outline: 2px solid var(--border-color); /* 호버 시 테두리 보라색 */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* 호버 시 그림자 강화 */
