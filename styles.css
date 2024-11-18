@@ -23,7 +23,7 @@ h1 {
 textarea {
     margin-bottom: 15px;
     border-radius: 10px;
-    border: 1px solid #9b59b6; /* 더 진한 보라색 */
+    border: 1px solid #9b59b6;
     background-color: #192734;
     color: #ffffff;
     padding: 15px;
@@ -35,7 +35,7 @@ textarea {
 }
 
 button.btn {
-    background-color: #8e44ad; /* 더 진한 보라색 */
+    background-color: #8e44ad;
     border: none;
     border-radius: 20px;
     color: #ffffff;
@@ -47,7 +47,7 @@ button.btn {
 }
 
 button.btn:hover {
-    background-color: #732d91; /* 더 진한 색상으로 변경 */
+    background-color: #732d91;
 }
 
 .form-group {
@@ -64,22 +64,25 @@ button.btn:hover {
 }
 
 button.option-btn {
-    background-color: #192734;
-    border: 2px solid #9b59b6; /* 진한 보라색 테두리 */
+    background-color: #22303c; /* 기본 상태에서 배경보다 살짝 밝은 색 */
+    border: none;
     border-radius: 20px;
     color: #ffffff;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s, border 0.3s;
     font-size: 1em;
-}
-
-button.option-btn.selected {
-    background-color: #8e44ad; /* 더 진한 보라색으로 선택된 상태 강조 */
-    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 기본 그림자 */
 }
 
 button.option-btn:hover {
-    background-color: #732d91; /* 진한 핑크-보라색 */
+    border: 2px solid #9b59b6; /* 호버 시 테두리 보라색 */
     transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* 호버 시 그림자 강화 */
+}
+
+button.option-btn.selected {
+    background-color: #8e44ad; /* 선택된 상태에서 진한 보라색 배경 */
+    color: #ffffff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* 선택 시 그림자 조금 더 강화 */
 }
