@@ -110,6 +110,7 @@ button.btn:hover {
 
 button.option-btn {
     height: 44px;
+    line-height: 1.2;
     align-items: center; /* 수직 중앙 정렬 */
     justify-content: center; /* 수평 중앙 정렬 */
     background-color: var(--background-light); /* 기본 상태에서 배경보다 살짝 밝은 색 */
