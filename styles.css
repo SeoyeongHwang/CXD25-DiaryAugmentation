@@ -58,6 +58,7 @@ h1 {
 textarea, input, select {
     font-family: var(--primary-font);
     font-size: 1.0em;
+    line-height: 1.6;
 }
 
 textarea {
@@ -146,4 +147,20 @@ button#submitButton {
     margin: 0;
     margin-bottom: 20px;
     box-sizing: border-box;
+}
+
+.result-container {
+    border: 1px solid var(--border-color); /* 경계선 색상 */
+    border-radius: 10px; /* 모서리를 둥글게 */
+    padding: 20px; /* 안쪽 여백 */
+    margin-bottom: 20px;
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    background-color: var(--background-light); /* 배경 색상 */
+    white-space: normal; /* 줄바꿈 유지 */
+    line-height: 1.6;
+    word-wrap: keep-all;
+}
+
+.hidden {
+    display: none;
 }

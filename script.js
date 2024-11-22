@@ -27,21 +27,29 @@ async function analyzeDiary() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer YOUR_OPENAI_API_KEY`
+                "Authorization": `Bearer sk-proj-33P6pdaYUY5DStoBLTCBT3BlbkFJ2avQLMTCD2ilzahGDOhD`
             },
             body: JSON.stringify({
                 model: "gpt-4o-mini",
                 messages: [
                     {
                         role: "user",
-                        content: `옵션1: ${option1.dataset.value}, 옵션2: ${option2.dataset.value}, 옵션3: ${option3.dataset.value}, 일기: ${entry}`
+                        content: (
+                            "Read the user's diary and, based on their attitudes and values, find things to be positive about or grateful for in the diary." +
+                            "Semantically reflect your findings and cover up the diary using the user's preferred language. Maintain a first-person perspective." +
+                            "Make it natural and authentic." +
+                            "Provide only the augmented diary content in Korean. The diary content is as follows\n\n" +
+                            `Attitude: ${option1.dataset.value}, Value: ${option2.dataset.value}, Language: ${option3.dataset.value}, Diary: ${entry}`
+                        )
                     }
-                ]
+                ],
+                temperature: 0.8
             })
         });
 
         const data = await response.json();
         document.getElementById("results").innerText = data.choices[0].message.content;
+        document.getElementById("results").classList.remove("hidden");
     } catch (error) {
         console.error("Error:", error);
         alert("오류가 발생했습니다. 나중에 다시 시도해주세요.");
