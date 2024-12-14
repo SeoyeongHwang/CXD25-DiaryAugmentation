@@ -1,12 +1,11 @@
 import streamlit as st
 import openai  # OpenAI API 사용
-from streamlit_extras.bottom_container import bottom
 from streamlit_extras.let_it_rain import rain
 from streamlit_extras.stylable_container import stylable_container
 from utils.api_client import DiaryAnalyzer
 from datetime import datetime
-import locale
 import pyperclip  # pyperclip 라이브러리 추가
+import pytz
 
 # 페이지 설정
 st.set_page_config(
@@ -68,7 +67,9 @@ else:
     }
 
     # 현재 날짜와 요일 가져오기
-    current_date = datetime.now()
+    # 한국시간 설정
+    kst = pytz.timezone('Asia/Seoul')
+    current_date = datetime.now(kst)
     current_day = current_date.strftime('%A')  # 영어 요일 가져오기
     translated_day = day_translation.get(current_day, current_day)  # 한국어로 변환
 
