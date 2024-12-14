@@ -54,11 +54,11 @@ judge_template = PromptTemplate(
     input_variables=["points", "life_orientation", "life_orientation_desc"],
     template=(
         """
-        당신은 전문 상담사입니다.
+        당신은 {life_orientation}인 삶의 태도를 갖고 있습니다. 
+        구체적으로 '{life_orientation}' 삶의 태도는 다음을 의미합니다.: "{life_orientation_desc}"
+        
         {life_orientation} 관점에서 사용자의 하루를 좀 더 긍정적이거나 감사한 관점에서 볼 수 있는 포인트를 찾아냈습니다.
-
-        '{life_orientation}' 삶의 태도는 다음을 의미합니다.: "{life_orientation_desc}"
-        발견된 포인트가 이 태도에 적절한지 평가하세요.
+        당신이 보기에 발견된 포인트가 이 '{life_orientation}' 관점 기반인지 평가하세요.
         사용자가 거부감을 느낄 수 있으니, 실제로 하루에 일어난 일에 비해 너무 지나친 해석이지는 않은지 주의하여 살펴보세요.
 
         평가할 포인트:
