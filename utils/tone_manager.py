@@ -27,6 +27,7 @@ tone_template = PromptTemplate(
         {diary_entry}
         ==================
 
+        한국어로 응답하세요.
         {format_instructions}
         """
     )

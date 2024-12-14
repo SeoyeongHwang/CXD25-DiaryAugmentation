@@ -43,6 +43,7 @@ extract_template = PromptTemplate(
         2. 일기 항목의 특정 부분을 참조하세요.
         3. 주어진 관점에 기반해서 왜 해당 부분을 다르게 바라볼 필요가 있는지 이유를 제공하세요.
 
+        한국어로 응답하세요.
         {format_instructions}
         """
     )
@@ -65,6 +66,7 @@ judge_template = PromptTemplate(
 
         이 긍정적/감사한 점이 '{life_orientation}' 관점과 관련이 있고 적절한지 판단하고 그 이유를 설명하세요.
 
+        한국어로 응답하세요.
         {format_instructions}
         """
     )
@@ -91,6 +93,7 @@ augment_template = PromptTemplate(
         3. 내용의 증강은 발견된 긍정적/감사할 포인트의 '이유'를 참고할 것.
         4. 발견된 긍정적/감사할 포인트의 '원문'을 참고하여 관련성 높은 위치에 증강된 내용을 추가할 것.
 
+        한국어로 응답하세요.
         {format_instructions}
         """
     )
