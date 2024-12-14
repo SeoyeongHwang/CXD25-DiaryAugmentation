@@ -14,9 +14,6 @@ st.set_page_config(
     layout="wide"  # 넓은 레이아웃 설정
 )
 
-# 한국어 로케일 설정
-# locale.setlocale(locale.LC_TIME, 'ko_KR.UTF-8')
-
 # 폰트 적용
 def load_css(filename):
     with open(filename) as f:
@@ -58,10 +55,26 @@ else:
             falling_speed=10,
             animation_length="0.5",
         )
+    
+    # 요일 변환 딕셔너리
+    day_translation = {
+        "Monday": "월요일",
+        "Tuesday": "화요일",
+        "Wednesday": "수요일",
+        "Thursday": "목요일",
+        "Friday": "금요일",
+        "Saturday": "토요일",
+        "Sunday": "일요일"
+    }
+
+    # 현재 날짜와 요일 가져오기
+    current_date = datetime.now()
+    current_day = current_date.strftime('%A')  # 영어 요일 가져오기
+    translated_day = day_translation.get(current_day, current_day)  # 한국어로 변환
 
     # 타이틀
     st.markdown(
-        f"<h2 style='text-align: center; padding: 0;'>{datetime.now().strftime('%m월 %d일 %A')}</h2><h2 style='text-align: center; padding: 0; margin-bottom: 40px'>오늘 하루</h2>",
+        f"<h2 style='text-align: center; padding: 0;'>{current_date.strftime('%m월 %d일')} {translated_day},</h2><h2 style='text-align: center; padding: 0; margin-bottom: 40px'>오늘</h2>",
         unsafe_allow_html=True
     )
 
@@ -86,6 +99,7 @@ else:
         "funny": "🤡 장난스러운", 
         "emotional": "🌌 감성적인"
     }
+    
 
     # "with" notation
     #with st.sidebar:
