@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 # 한국어 로케일 설정
-locale.setlocale(locale.LC_TIME, 'ko_KR.UTF-8')
+# locale.setlocale(locale.LC_TIME, 'ko_KR.UTF-8')
 
 # 폰트 적용
 def load_css(filename):
