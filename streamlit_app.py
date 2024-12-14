@@ -134,7 +134,7 @@ else:
             st.toast("내용을 클립보드에 복사했어요!", icon=":material/check:")  # 사용자에게 알림
 
     with col2:
-        selector = st.expander("관점 더하기", icon="🔮", expanded=st.session_state.expander_state)  # 세션 상태 사용
+        selector = st.expander("하루에 관점 더하기", icon="🔮", expanded=st.session_state.expander_state)  # 세션 상태 사용
         # 옵션 선택 섹션 - life_orientation
         selector.text("오늘을 바라보고픈 태도는")
         life_orientation = selector.pills(
@@ -167,9 +167,9 @@ else:
 
         with selector:
             button_disabled = st.session_state.get('button_disabled', False)
-            if selector.button("🪄 다시 바라보기", type='secondary', use_container_width=True, disabled=button_disabled, on_click=toggle_expander_state):
+            if selector.button("🪄 하루를 다시 바라보기", type='secondary', use_container_width=True, disabled=button_disabled, on_click=toggle_expander_state):
                 if not life_orientation or not value or not tone or not diary_entry.strip():
-                    st.warning("일기를 입력하고 모든 옵션을 선택해 주세��!")
+                    st.warning("일기를 입력하고 모든 옵션 선택을 완료하면 새로운 관점을 찾아드릴게요.")
                 else:
                     try:
                         toggle_expander_state()  # 상태를 변경하고
