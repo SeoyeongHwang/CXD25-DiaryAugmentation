@@ -240,7 +240,7 @@ else:
             # 선택된 태그
             with st.container():
                 tags = st.container()
-                tags.markdown(f":violet[_#{life_orientation_map[st.session_state.life_orientation]} #{value_map[st.session_state.value]} #{tone_map[st.session_state.tone]}_]")
+                tags.markdown(f":violet[_#{life_orientation_map[st.session_state.life_orientation]}  #{value_map[st.session_state.value]}  #{tone_map[st.session_state.tone]}_]")
             # 결과
             container = st.container()
             container.write(st.session_state.analysis_result)
