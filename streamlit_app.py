@@ -133,7 +133,7 @@ else:
 
         if st.button("복사하기", icon=":material/content_copy:", type='secondary'):
             pyperclip.copy(st.session_state.diary_entry_value)  # 클립보드에 복사
-            st.toast("내용을 클립보드에 복사했어요!", icon=":material/check:")  # 사용자에게 알림
+            st.toast("작성한 일기를 클립보드에 복사했어요!", icon=":material/check:")  # 사용자에게 알림
 
     with col2:
         selector = st.expander("하루에 관점 더하기", icon="🔮", expanded=st.session_state.expander_state)  # 세션 상태 사용
@@ -215,7 +215,7 @@ else:
 
     if st.session_state.get('entry_update_notice', False):
         st.session_state.entry_update_notice = False
-        st.toast('일기 내용을 성공적으로 업데이트했어요!', icon=":material/check:")
+        st.toast('일기를 성공적으로 가져왔어요! 가져온 내용을 수정할 수 있어요.', icon=":material/check:")
 
     # 결과가 있다면 항상 표시
     if st.session_state.analysis_result:
