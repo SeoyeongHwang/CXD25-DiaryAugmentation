@@ -87,11 +87,11 @@ else:
         "accepting":"수용적"
     }
     value_map = {
-        "growth":"발전", 
         "balance":"균형", 
         "achievement":"성취", 
         "relationship":"관계", 
-        "experience":"경험"
+        "experience":"경험",
+        "emotion":"감정"
     }
     tone_map = {
         "warm": "🤗 따뜻한",
@@ -173,7 +173,7 @@ else:
                     st.warning("일기를 입력하고 모든 옵션 선택을 완료하면 새로운 관점을 찾아드릴게요.")
                 else:
                     try:
-                        toggle_expander_state()  # 상태를 변경하고
+                        #toggle_expander_state()  # 상태를 변경하고
                         st.session_state.rerun_needed = True  # 새로 고침 필요 플래그 설정
                         with result_container:
                             with st.spinner("잠시만 기다려주세요!"):
@@ -193,7 +193,7 @@ else:
                                 st.session_state.show_result_rain = True
                                 
                                 # "내 일기에 담기" 버튼을 API 호출 후에만 표시
-                                st.session_state.show_update_entry_button = True  # 버튼 표시 플래�� 설정
+                                st.session_state.show_update_entry_button = True  # 버튼 표시 설정
 
                                 # 페이지 새로 고침 필요 여부 확인
                                 if st.session_state.get('rerun_needed', False):
