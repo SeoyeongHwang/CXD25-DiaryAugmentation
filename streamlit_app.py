@@ -114,6 +114,7 @@ else:
         st.session_state.expander_state = True  # 기본적으로 열려 있음
     def toggle_expander_state():
         st.session_state.expander_state = False  # 상태 토글
+        st.session_state.rerun_needed = True  # 새로 고침 필요 플래그 설정
 
     col1, col2 = st.columns([0.5, 0.5], vertical_alignment="top")
 
