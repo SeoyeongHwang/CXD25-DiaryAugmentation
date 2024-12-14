@@ -167,7 +167,7 @@ else:
 
         with selector:
             button_disabled = st.session_state.get('button_disabled', False)
-            if selector.button("🪄 하루를 다시 바라보기", type='secondary', use_container_width=True, disabled=button_disabled, on_click=toggle_expander_state):
+            if selector.button("🪄 다시 바라보기", type='secondary', use_container_width=True, disabled=button_disabled, on_click=toggle_expander_state):
                 if not life_orientation or not value or not tone or not diary_entry.strip():
                     st.warning("일기를 입력하고 모든 옵션 선택을 완료하면 새로운 관점을 찾아드릴게요.")
                 else:
