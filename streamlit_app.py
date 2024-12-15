@@ -6,6 +6,7 @@ from utils.api_client import DiaryAnalyzer
 from datetime import datetime
 import pyperclip  # pyperclip 라이브러리 추가
 import pytz
+from st_copy_to_clipboard import st_copy_to_clipboard
 
 # 페이지 설정
 st.set_page_config(
@@ -132,7 +133,7 @@ else:
         st.session_state.diary_entry_value = diary_entry  # 추가된 코드
 
         if st.button("복사하기", icon=":material/content_copy:", type='secondary'):
-            pyperclip.copy(st.session_state.diary_entry_value)  # 클립보드에 복사
+            st_copy_to_clipboard(st.session_state.diary_entry_value)  # 클립보드에 복사
             st.toast("작성한 일기를 클립보드에 복사했어요!", icon=":material/check:")  # 사용자에게 알림
 
     with col2:

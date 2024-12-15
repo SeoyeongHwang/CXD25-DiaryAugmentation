@@ -116,3 +116,4 @@ validators==0.34.0
 Werkzeug==3.1.3
 yarl==1.18.0
 pytz
+st_copy_to_clipboard
