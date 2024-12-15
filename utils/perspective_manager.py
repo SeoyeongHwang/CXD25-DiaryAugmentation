@@ -1,13 +1,10 @@
 from langchain.prompts import PromptTemplate
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.output_parsers import PydanticOutputParser
-from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from typing import Dict, List
 import json
 from pathlib import Path
-from langchain.chains import LLMChain
-from langchain.prompts import ChatPromptTemplate
 
 # 추출 결과 모델 정의
 class DiscoveringSteps(BaseModel):

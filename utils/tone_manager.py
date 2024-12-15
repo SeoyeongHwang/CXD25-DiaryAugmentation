@@ -2,13 +2,10 @@ import json
 import random
 from pathlib import Path
 from langchain.prompts import PromptTemplate
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.output_parsers import PydanticOutputParser
-from langchain.schema import OutputParserException
 from pydantic import BaseModel, Field
 from typing import Dict, List
-from langchain.chains import LLMChain
-from langchain.prompts import ChatPromptTemplate
 
 tone_template = PromptTemplate(
     input_variables=["diary_entry", "tone", "tone_example"],
@@ -33,12 +30,6 @@ tone_template = PromptTemplate(
     )
 )
 
-"""
-다음에 주의하세요:
-        1. 일기에 포함된 사실이나 해석을 왜곡해서는 안 됨에 주의하세요.
-        2. 어색함 없이 자연스러운 한 편의 일기로 다듬으세요.
-"""
-
 class ToneAugmentResult(BaseModel):
     diary_entry: str = Field(description="증강된 일기 내용")
 
@@ -59,7 +50,7 @@ class ToneManager:
             all_examples = json.load(f)
         
         # 톤에 따라 예시를 필터링
-        return {tone: examples for tone, examples in all_examples.items() if examples}
+        return {tone: examples for tone, examples in all_examples.items() if examples}  # 예시가 있는 톤만 반환
     
     def get_random_example(self, tone: str) -> str:
         """특정 톤의 랜덤 예시 반환"""
