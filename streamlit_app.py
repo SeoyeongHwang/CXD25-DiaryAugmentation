@@ -133,10 +133,8 @@ else:
         st.session_state.diary_entry_value = diary_entry  # 추가된 코드
 
         if st.button("복사하기", icon=":material/content_copy:", type='secondary'):
-            pyperclip.copy(st.session_state.diary_entry_value)  # 클립보드에 복사
-            st.toast("작성한 일기를 클립보드에 복사했어요!", icon=":material/check:")  # 사용자에게 알림
-        if st_copy_to_clipboard("복사하기", before_copy_label=":material/content_copy:", after_copy_label=":material/check:"):
-            st.toast("작성한 일기를 클립보드에 복사했어요!", icon=":material/check:")  # 사용자에게 알림
+            # pyperclip.copy(st.session_state.diary_entry_value)  # 클립보드에 복사
+            st.toast("현재 복사 기능은 지원되지 않습니다. 필요한 경우 직접 복사 가능합니다.", icon=":material/check:")  # 사용자에게 알림
 
     with col2:
         selector = st.expander("하루에 관점 더하기", icon="🔮", expanded=st.session_state.expander_state)  # 세션 상태 사용
