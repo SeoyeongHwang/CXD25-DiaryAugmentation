@@ -174,7 +174,6 @@ else:
                     st.warning("일기를 입력하고 모든 옵션 선택을 완료하면 새로운 관점을 찾아드릴게요.")
                 else:
                     try:
-                        #toggle_expander_state()  # 상태를 변경하고
                         st.session_state.rerun_needed = True  # 새로 고침 필요 플래그 설정
                         st.toast("일기에 새로운 관점을 추가하고 있어요!", icon=":material/flare:")  # 사용자에게 알림
                         with result_container:
@@ -192,7 +191,7 @@ else:
                                 st.session_state.life_orientation = life_orientation  # 마지막 선택한 orientation 저장
                                 st.session_state.value = value
                                 st.session_state.tone = tone
-                                st.session_state.show_result_rain = True
+                                st.session_state.show_result_rain = True  # rain 효과를 표시하기 위해 True로 설정
                                 
                                 # "내 일기에 담기" 버튼을 API 호출 후에만 표시
                                 st.session_state.show_update_entry_button = True  # 버튼 표시 설정
@@ -254,3 +253,4 @@ else:
             falling_speed=10,
             animation_length="1",
         )
+        st.session_state.show_result_rain = False  # rain 효과가 표시된 후 다시 False로 설정
