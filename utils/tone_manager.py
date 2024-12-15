@@ -56,7 +56,10 @@ class ToneManager:
         """톤 예시 JSON 파일 로드"""
         json_path = Path(__file__).parent.parent / 'config' / 'tone_examples.json'
         with open(json_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            all_examples = json.load(f)
+        
+        # 톤에 따라 예시를 필터링
+        return {tone: examples for tone, examples in all_examples.items() if examples}
     
     def get_random_example(self, tone: str) -> str:
         """특정 톤의 랜덤 예시 반환"""
