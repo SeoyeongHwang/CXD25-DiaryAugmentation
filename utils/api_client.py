@@ -34,6 +34,7 @@ class DiaryAnalyzer:
     def augment_with_langchain(self, diary_entry: str, life_orientation: str, value: str, tone: str) -> str:
         """LangChain 에이전트를 사용한 분석"""
         try:
+            print("▶ 원본: \n", diary_entry)
             result = self.perspective_manager.augment_from_perspective(
                 diary_entry=diary_entry,
                 life_orientation=life_orientation,  # 추가
@@ -46,6 +47,7 @@ class DiaryAnalyzer:
                     tone=tone
                 )
                 print("▶ tone agent 동작 완료")
+                print("▶ AI 증강 결과: \n", result)
                 return result
             except Exception as e:
                 raise Exception(f"tone agent 동작 중 오류 발생: {str(e)}")

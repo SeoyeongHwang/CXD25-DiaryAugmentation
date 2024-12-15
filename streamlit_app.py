@@ -135,6 +135,7 @@ else:
         if st.button("복사하기", icon=":material/content_copy:", type='secondary'):
             # pyperclip.copy(st.session_state.diary_entry_value)  # 클립보드에 복사
             st.toast("현재 복사 기능은 지원되지 않습니다.\n필요한 경우 직접 복사 해주세요.", icon=":material/error:")  # 사용자에게 알림
+            print('►복사: \n', st.session_state.diary_entry_value)
 
     with col2:
         selector = st.expander("하루에 관점 더하기", icon="🔮", expanded=st.session_state.expander_state)  # 세션 상태 사용
@@ -212,6 +213,7 @@ else:
                 st.session_state.diary_entry_value = st.session_state.analysis_result  # LLM 결과를 session_state에 저장
                 if 'entry_update_notice' not in st.session_state:
                     st.session_state.entry_update_notice = True  # 기본적으로 열려 있음
+                print('►적용: \n', st.session_state.entry_update_notice)
                 st.rerun()  # 페이지를 새로 고침하여 텍스트 영역 업데이트
 
     if st.session_state.get('entry_update_notice', False):
