@@ -50,7 +50,7 @@ class ToneManager:
             all_examples = json.load(f)
         
         # 톤에 따라 예시를 필터링
-        return {tone: examples for tone, examples in all_examples.items() if examples}  # 예시가 있는 톤만 반환
+        return all_examples
     
     def get_random_example(self, tone: str) -> str:
         """특정 톤의 랜덤 예시 반환"""
