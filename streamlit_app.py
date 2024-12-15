@@ -176,8 +176,9 @@ else:
                     try:
                         #toggle_expander_state()  # 상태를 변경하고
                         st.session_state.rerun_needed = True  # 새로 고침 필요 플래그 설정
+                        st.toast("일기에 새로운 관점을 추가하고 있어요!", icon=":material/flare:")  # 사용자에게 알림
                         with result_container:
-                            with st.spinner("잠시만 기다려주세요!"):
+                            with st.spinner("잠시만 기다려주세요..."):
                                 result = analyzer.augment_diary(
                                     diary_entry=diary_entry,
                                     life_orientation=life_orientation,
