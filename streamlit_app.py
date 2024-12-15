@@ -133,7 +133,9 @@ else:
         st.session_state.diary_entry_value = diary_entry  # 추가된 코드
 
         if st.button("복사하기", icon=":material/content_copy:", type='secondary'):
-            st_copy_to_clipboard(st.session_state.diary_entry_value)  # 클립보드에 복사
+            pyperclip.copy(st.session_state.diary_entry_value)  # 클립보드에 복사
+            st.toast("작성한 일기를 클립보드에 복사했어요!", icon=":material/check:")  # 사용자에게 알림
+        if st_copy_to_clipboard("복사하기", before_copy_label=":material/content_copy:", after_copy_label=":material/check:"):
             st.toast("작성한 일기를 클립보드에 복사했어요!", icon=":material/check:")  # 사용자에게 알림
 
     with col2:
