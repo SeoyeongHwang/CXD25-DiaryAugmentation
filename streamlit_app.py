@@ -217,6 +217,16 @@ else:
         st.session_state.entry_update_notice = False
         st.toast('일기를 성공적으로 가져왔어요! 가져온 내용을 수정할 수 있어요.', icon=":material/check:")
 
+    # rain 효과 표시 (session_state에 저장된 상태에 따라)
+    if st.session_state.get('show_result_rain', False):
+        st.session_state.show_result_rain = False
+        rain(
+            emoji="🍀",
+            font_size=36,
+            falling_speed=10,
+            animation_length="1",
+        )
+
     # 결과가 있다면 항상 표시
     if st.session_state.analysis_result:
         with result_container.container(height=300, border=None):
@@ -245,12 +255,4 @@ else:
             container = st.container()
             container.write(st.session_state.analysis_result)
 
-    # rain 효과 표시 (session_state에 저장된 상태에 따라)
-    if st.session_state.get('show_result_rain', False):
-        rain(
-            emoji="🍀",
-            font_size=36,
-            falling_speed=10,
-            animation_length="1",
-        )
-        st.session_state.show_result_rain = False  # rain 효과가 표시된 후 다시 False로 설정
+    
